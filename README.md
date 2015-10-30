@@ -10,7 +10,7 @@
 Fork and clone this lab. You'll be coding your solution in `lib/my_find.rb`. If at any point you want to follow along with the example, you can put a `binding.pry` anywhere in the method and run `ruby bin/my_all` in your terminal to pry around.
 
 ###Step 1
-We need to iterate through each element in the passed in collection using the simple lower level iterator `while`. Remember, since this is a lower level iterator, we will need to explicitly add a counter we'll call `i`, and increment it each time we go into the loop (`i=i+1`):
+We need to iterate through each element in the passed in collection using the simple lower level iterator `while`. Remember, since this is a lower level iterator, we will need to explicitly add a counter we'll call `i`, and increment it each time we go into the loop (`i = i + 1`):
 
 ```ruby
 def my_find(collection)
@@ -23,7 +23,7 @@ end
 
 
 ###Step 2
-For each element in the collection, you're going to `yield` to the block. This is a tough concept to grasp. Let's look at the code and break down what's happening.
+For each element in the collection, you're going to `yield` to the block. Let's look at the code and break down what's happening.
 
 ```ruby
 def my_find(collection)
@@ -66,41 +66,33 @@ my_find(collection) {|1| 1 % 3 == 0 and 1 % 5 == 0 }
 In this example, ruby will send `false` (the return value of the block) back to the `my_find` method because `1 % 3 == 0 and 1 % 5 == 0` evaluates to `false`.
 
 ###Step 3: Using the return value of the yield block
-The purpose of the `find` method is to *return the element in the array* that evaluates to `true` not the return value itself. Therefore, let's use the return value to set a conditional. In other words, we want to say something like:
+The purpose of the `find` method is to *return the first element in the array* that evaluates to `true` not the return value itself. Therefore, let's use the return value to set a conditional. In other words, we want to say something like:
 
 1. Yield to this block with the given argument
-2. If the block returns true, save the *argument we passed into yield* AKA *the element in the array that evaluated to true*
+2. If the block returns true, `return` the *argument we passed into yield* AKA *the element in the array that evaluated to true*. This will exit the loop and the element will be the return value of the method.
 3. If the block returns false, continue to the next element in the array
-
-First, we'll declare our array before entering the `while` loop to save any elements from #2 above: `block_return_values = []`. Then, in the `if` conditional, let's shovel (`<<`) the element from the array into the array: `block_return_values << collection[i]`.
 
 ```ruby
 def my_find(collection)
   i = 0
-  block_return_values = []
   while i < collection.length
     if yield(collection[i])
-      block_return_values << collection[i]
+      return collection[i]
     end
     i = i + 1
   end
 end
 ```
 
-###Step 4: Determine the return value of the method
-The return value of `find` is the array of elements from the array that evaluated to true. Luckily we've already stored all of these in the `block_return_values`. All we have to do now is return the variable at the end of the `while` loop.
+We can refactor this slightly by putting our `if` statement all on one line useing a statment modifier:
 
 ```ruby
 def my_find(collection)
   i = 0
-  block_return_values = []
   while i < collection.length
-    if yield(collection[i])
-      block_return_values << collection[i]
-    end
+    return collection[i] if yield(collection[i])
     i = i + 1
   end
-  block_return_values
 end
 ```
 
@@ -110,9 +102,5 @@ Sticking with our previous example:
 collection = (1..100).to_a
 my_find(collection) {|i| i % 3 == 0 and i % 5 == 0 }
 ```
-Our `block_return_values` would look like this:
-
-```ruby
-block_return_values = [15, 30, 45, 60, 75, 90]
-```
+Our method will return the first element in the array that evaluates to `true`. In our example this would be 15.
 
