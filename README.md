@@ -84,7 +84,7 @@ def my_find(collection)
 end
 ```
 
-We can refactor this slightly by putting our `if` statement all on one line useing a statment modifier:
+We can refactor this slightly by putting our `if` statement all on one line using a statment modifier:
 
 ```ruby
 def my_find(collection)
