@@ -104,3 +104,5 @@ my_find(collection) {|i| i % 3 == 0 and i % 5 == 0 }
 ```
 Our method will return the first element in the array that evaluates to `true`. In our example this would be 15.
 
+
+<a href='https://learn.co/lessons/my_find_code_along' data-visibility='hidden'>View this lesson on Learn.co</a>
