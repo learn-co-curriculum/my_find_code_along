@@ -7,7 +7,7 @@
 
 ##Code Along Exercise
 
-Fork and clone this lab. You'll be coding your solution in `lib/my_find.rb`. If at any point you want to follow along with the example, you can put a `binding.pry` anywhere in the method and run `ruby bin/my_all` in your terminal to pry around.
+Fork and clone this lab. You'll be coding your solution in `lib/my_find.rb`. If at any point you want to follow along with the example, you can put a `binding.pry` anywhere in the method and run `ruby bin/my_find` in your terminal to pry around.
 
 ###Step 1
 We need to iterate through each element in the passed in collection using the simple lower level iterator `while`. Remember, since this is a lower level iterator, we will need to explicitly add a counter we'll call `i`, and increment it each time we go into the loop (`i = i + 1`):
@@ -84,7 +84,7 @@ def my_find(collection)
 end
 ```
 
-We can refactor this slightly by putting our `if` statement all on one line useing a statment modifier:
+We can refactor this slightly by putting our `if` statement all on one line using a statment modifier:
 
 ```ruby
 def my_find(collection)
@@ -104,3 +104,5 @@ my_find(collection) {|i| i % 3 == 0 and i % 5 == 0 }
 ```
 Our method will return the first element in the array that evaluates to `true`. In our example this would be 15.
 
+
+<a href='https://learn.co/lessons/my_find_code_along' data-visibility='hidden'>View this lesson on Learn.co</a>
