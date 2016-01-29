@@ -105,4 +105,4 @@ my_find(collection) {|i| i % 3 == 0 and i % 5 == 0 }
 Our method will return the first element in the array that evaluates to `true`. In our example this would be 15.
 
 
-<a href='https://learn.co/lessons/my_find_code_along' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/my_find_code_along' title='Code Along: Building the find method'>Code Along: Building the find method</a> on Learn.co and start learning to code for free.</p>
