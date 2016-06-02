@@ -84,7 +84,7 @@ def my_find(collection)
 end
 ```
 
-We can refactor this slightly by putting our `if` statement all on one line using a statment modifier:
+We can refactor this slightly by putting our `if` statement all on one line using a statement modifier:
 
 ```ruby
 def my_find(collection)
@@ -105,4 +105,6 @@ my_find(collection) {|i| i % 3 == 0 and i % 5 == 0 }
 Our method will return the first element in the array that evaluates to `true`. In our example this would be 15.
 
 
-<a href='https://learn.co/lessons/my_find_code_along' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/my_find_code_along' title='Code Along: Building the find method'>Code Along: Building the find method</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/my_find_code_along'>My Find Lab</a> on Learn.co and start learning to code for free.</p>
