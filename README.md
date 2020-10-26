@@ -1,15 +1,16 @@
 # Code Along: Building the `find` method 
 
-##Objectives
+## Objectives
+
 * Continue to practice using yield and blocks
 * Gain a deeper understanding of `#find`
 
-
-##Code Along Exercise
+## Code Along Exercise
 
 Fork and clone this lab. You'll be coding your solution in `lib/my_find.rb`. If at any point you want to follow along with the example, you can put a `binding.pry` anywhere in the method and run `ruby bin/my_find` in your terminal to pry around.
 
-###Step 1
+### Step 1
+
 We need to iterate through each element in the passed in collection using the simple lower level iterator `while`. Remember, since this is a lower level iterator, we will need to explicitly add a counter we'll call `i`, and increment it each time we go into the loop (`i = i + 1`):
 
 ```ruby
@@ -21,8 +22,7 @@ def my_find(collection)
 end
 ```
 
-
-###Step 2
+### Step 2
 For each element in the collection, you're going to `yield` to the block. Let's look at the code and break down what's happening.
 
 ```ruby
@@ -102,9 +102,5 @@ Sticking with our previous example:
 collection = (1..100).to_a
 my_find(collection) {|i| i % 3 == 0 and i % 5 == 0 }
 ```
+
 Our method will return the first element in the array that evaluates to `true`. In our example this would be 15.
-
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/my_find_code_along' title='Code Along: Building the find method'>Code Along: Building the find method</a> on Learn.co and start learning to code for free.</p>
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/my_find_code_along'>My Find Lab</a> on Learn.co and start learning to code for free.</p>
