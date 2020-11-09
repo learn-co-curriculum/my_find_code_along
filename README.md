@@ -65,7 +65,7 @@ my_find(collection) {|1| 1 % 3 == 0 and 1 % 5 == 0 }
 
 In this example, ruby will send `false` (the return value of the block) back to the `my_find` method because `1 % 3 == 0 and 1 % 5 == 0` evaluates to `false`.
 
-###Step 3: Using the return value of the yield block
+### Step 3: Using the return value of the yield block
 
 The purpose of the `find` method is to *return the first element in the array* that evaluates to `true` not the return value itself. Therefore, let's use the return value to set a conditional. In other words, we want to say something like:
 
